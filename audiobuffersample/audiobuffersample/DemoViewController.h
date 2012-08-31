@@ -20,4 +20,6 @@
 - (IBAction)keyDown:(id)sender;
 - (IBAction)keyUp:(id)sender;
 
+- (int) calculateMidiNote:(CGPoint)position;
+
 @end

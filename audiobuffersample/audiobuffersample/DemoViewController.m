@@ -135,4 +135,75 @@
 	[synthLock unlock];
 }
 
+#pragma mark - Calculate midi note
+
+- (int) calculateMidiNote:(CGPoint)point
+{
+    //int midiNote = point.x%108;
+    int midiNote = fmodf(point.x, 108);
+    if (midiNote<21) {
+        midiNote = 21;
+    }
+    return midiNote;
+}
+
+#pragma mark - Receive Touches
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint touchPoint = [touch locationInView:self.view];
+    
+    NSLog(@"+++++");
+    NSLog(@"touchesBegan");
+    NSLog(@"touchPoint is (%f, %f)", touchPoint.x, touchPoint.y);
+    NSLog(@"+++++");
+    
+    [synthLock lock];
+    // The tag of each button corresponds to its MIDI note number.
+	//int midiNote = ((UIButton*)sender).tag;
+    int midiNote = [self calculateMidiNote:touchPoint];
+	[synth playNote:midiNote];
+	
+	[synthLock unlock];
+}
+
+- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint touchPoint = [touch locationInView:self.view];
+    
+    NSLog(@"*****");
+    NSLog(@"touchesMoved");
+    NSLog(@"touchPoint is (%f, %f)", touchPoint.x, touchPoint.y);
+    NSLog(@"*****");
+}
+
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint touchPoint = [touch locationInView:self.view];
+    
+    NSLog(@"=====");
+    NSLog(@"touchesEnded");
+    NSLog(@"touchPoint is (%f, %f)", touchPoint.x, touchPoint.y);
+    NSLog(@"=====");
+    
+    [synthLock lock];
+        
+	//int midiNote = ((UIButton*)sender).tag;
+	//[synth releaseNote:midiNote];
+    
+	[synthLock unlock];
+}
+
+- (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    // Most likely won't call this
+    //UITouch *touch = [touches anyObject];
+    NSLog(@"-----touchesCancelled-----");
+}
+
+
+
 @end
