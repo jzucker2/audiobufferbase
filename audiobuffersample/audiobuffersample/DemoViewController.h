@@ -10,7 +10,7 @@
 #import "AudioBufferPlayer.h"
 #import "Synth.h"
 
-@interface DemoViewController : UIViewController <AudioBufferPlayerDelegate>
+@interface DemoViewController : UIViewController <AudioBufferPlayerDelegate, UIGestureRecognizerDelegate>
 {
 	AudioBufferPlayer* player;
 	Synth* synth;
