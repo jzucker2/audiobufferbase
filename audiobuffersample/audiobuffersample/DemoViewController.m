@@ -170,31 +170,31 @@
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = [touches anyObject];
-    CGPoint touchPoint = [touch locationInView:self.view];
-    
-    NSLog(@"*****");
-    NSLog(@"touchesMoved");
-    NSLog(@"touchPoint is (%f, %f)", touchPoint.x, touchPoint.y);
-    NSLog(@"*****");
+//    UITouch *touch = [touches anyObject];
+//    CGPoint touchPoint = [touch locationInView:self.view];
+//    
+//    NSLog(@"*****");
+//    NSLog(@"touchesMoved");
+//    NSLog(@"touchPoint is (%f, %f)", touchPoint.x, touchPoint.y);
+//    NSLog(@"*****");
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = [touches anyObject];
-    CGPoint touchPoint = [touch locationInView:self.view];
-    
-    NSLog(@"=====");
-    NSLog(@"touchesEnded");
-    NSLog(@"touchPoint is (%f, %f)", touchPoint.x, touchPoint.y);
-    NSLog(@"=====");
-    
-    [synthLock lock];
-        
-	//int midiNote = ((UIButton*)sender).tag;
-	//[synth releaseNote:midiNote];
-    
-	[synthLock unlock];
+//    UITouch *touch = [touches anyObject];
+//    CGPoint touchPoint = [touch locationInView:self.view];
+//    
+//    NSLog(@"=====");
+//    NSLog(@"touchesEnded");
+//    NSLog(@"touchPoint is (%f, %f)", touchPoint.x, touchPoint.y);
+//    NSLog(@"=====");
+//    
+//    [synthLock lock];
+//        
+//	//int midiNote = ((UIButton*)sender).tag;
+//	//[synth releaseNote:midiNote];
+//    
+//    [synthLock unlock];
 }
 
 - (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
